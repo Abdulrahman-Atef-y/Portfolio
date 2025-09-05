@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AA Portfolio</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Use the Inter font from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar for a clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827; /* gray-900 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563; /* gray-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280; /* gray-500 */
+        }
+        /* Animation for skills bars */
+        @keyframes fill-bar {
+            from {
+                width: 0;
+            }
+        }
+        .progress-bar-inner {
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+    <!-- Header and Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-800 shadow-sm">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-gray-100">AA.DEV</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="text-gray-400 hover:text-white font-medium">About</a>
+                <a href="#usp" class="text-gray-400 hover:text-white font-medium">USP</a>
+                <a href="#skills" class="text-gray-400 hover:text-white font-medium">Skills</a>
+                <a href="#projects" class="text-gray-400 hover:text-white font-medium">Projects</a>
+                <a href="#contact" class="text-gray-400 hover:text-white font-medium">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500" onclick="toggleMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-16 w-full bg-gray-800 shadow-lg pb-4">
+            <a href="#about" class="block py-2 px-4 text-gray-400 hover:bg-gray-700" onclick="toggleMenu()">About</a>
+            <a href="#usp" class="block py-2 px-4 text-gray-400 hover:bg-gray-700" onclick="toggleMenu()">USP</a>
+            <a href="#skills" class="block py-2 px-4 text-gray-400 hover:bg-gray-700" onclick="toggleMenu()">Skills</a>
+            <a href="#projects" class="block py-2 px-4 text-gray-400 hover:bg-gray-700" onclick="toggleMenu()">Projects</a>
+            <a href="#contact" class="block py-2 px-4 text-gray-400 hover:bg-gray-700" onclick="toggleMenu()">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="py-20 lg:py-32 flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-700">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl lg:text-6xl font-bold mb-4 text-white">Hi, I'm <span class="text-gray-200">Abdelrahman Atef</span></h1>
+                <p class="text-lg lg:text-2xl text-gray-400 max-w-2xl mx-auto mb-8">
+                    A Passionate Full-Stack Developer creating beautiful and functional web applications.
+                </p>
+                <a href="#projects" class="inline-block bg-gray-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+                    View My Work
+                </a>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-16 lg:py-24">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
+                <div class="w-full md:w-1/3 flex justify-center">
+                    <img src="img/Profile Photo.jpg" alt="Your Profile Photo" class="rounded-full shadow-lg max-w-xs w-full h-auto">
+                </div>
+                <div class="w-full md:w-2/3">
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-white">About Me</h2>
+                    <p class="text-gray-400 leading-relaxed mb-4">
+                        Motivated Computer Science student with a strong passion for web development and expertise in .NET technologies. Skilled in HTML, CSS, JavaScript, C#, SQL, and version control with GitHub. Experienced in building and managing end-to-end web projects, from requirements gathering and full documentation to deployment. Adept at project management and committed to delivering high-quality, user-focused solutions.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed">
+                        I believe in clean code, good design, and the power of collaboration. When I'm not coding, you can find me hiking, reading science fiction, or playing board games.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- USP Section -->
+        <section id="usp" class="py-16 lg:py-24 bg-gradient-to-r from-gray-900 to-gray-800">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-white">What Makes Me Unique?</h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+                    I combine strong technical expertise in full-stack development with a passion for user experience and a commitment to continuous learning. My ability to bridge the gap between business needs and technical solutions, along with my collaborative spirit, ensures every project I work on delivers real value and impact.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-8">
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex-1">
+                        <h3 class="text-xl font-semibold text-white mb-2">Full-Stack Mastery</h3>
+                        <p class="text-gray-400">Proficient in both front-end and back-end technologies, I deliver seamless, scalable, and maintainable solutions.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex-1">
+                        <h3 class="text-xl font-semibold text-white mb-2">User-Centric Approach</h3>
+                        <p class="text-gray-400">I prioritize user experience and accessibility, ensuring every application is intuitive and engaging.</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg shadow-lg p-6 flex-1">
+                        <h3 class="text-xl font-semibold text-white mb-2">Continuous Growth</h3>
+                        <p class="text-gray-400">I stay updated with the latest technologies and best practices, always striving to improve and innovate.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 lg:py-24 bg-gray-800">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-white">Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                    <!-- Technical Skills -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-white text-center md:text-left">Technical Skills</h3>
+                        <div class="space-y-6">
+                            <!-- Languages -->
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2 text-white">Languages</h4>
+                                <div class="space-y-4">
+                                    <div class="mb-6">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-gray-400">C++</span>
+                                            <span id="cpp-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                                            <div id="cpp-bar" class="progress-bar-inner bg-gray-400 h-full rounded-full" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-gray-400">C#</span>
+                                            <span id="csharp-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                                            <div id="csharp-bar" class="progress-bar-inner bg-gray-400 h-full rounded-full" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-gray-400">Python</span>
+                                            <span id="python-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                                            <div id="python-bar" class="progress-bar-inner bg-gray-400 h-full rounded-full" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-gray-400">JavaScript/ES6</span>
+                                            <span id="js-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                                            <div id="js-bar" class="progress-bar-inner bg-gray-400 h-full rounded-full" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Frameworks & Libraries -->
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2 text-white">Frameworks & Libraries</h4>
+                                <div class="space-y-4">
+                                    <div class="mb-6">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-gray-400">ASP.NET Core MVC</span>
+                                            <span id="asp-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                                            <div id="asp-bar" class="progress-bar-inner bg-gray-400 h-full rounded-full" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-gray-400">React.js</span>
+                                            <span id="react-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                                            <div id="react-bar" class="progress-bar-inner bg-gray-400 h-full rounded-full" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-gray-400">HTML5/CSS3</span>
+                                            <span id="html-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                                            <div id="html-bar" class="progress-bar-inner bg-gray-400 h-full rounded-full" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Databases -->
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2 text-white">Databases</h4>
+                                <div class="space-y-4">
+                                    <div class="mb-6">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-gray-400">SQL</span>
+                                            <span id="sql-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                                            <div id="sql-bar" class="progress-bar-inner bg-gray-400 h-full rounded-full" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="text-gray-400">Entity Framework Core</span>
+                                            <span id="efc-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                                            <div id="efc-bar" class="progress-bar-inner bg-gray-400 h-full rounded-full" style="width: 0;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="md:col-span-2 lg:col-span-1">
+                        <h3 class="text-2xl font-bold mb-6 text-white text-center md:text-left">Soft Skills</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-lg font-semibold text-white">Self-motivated</span>
+                                    <span id="selfmot-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-4">
+                                    <div id="selfmot-bar" class="progress-bar-inner bg-gray-400 h-4 rounded-full" style="width: 0;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-lg font-semibold text-white">Attention to detail</span>
+                                    <span id="attention-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-4">
+                                    <div id="attention-bar" class="progress-bar-inner bg-gray-400 h-4 rounded-full" style="width: 0;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-lg font-semibold text-white">Critical thinking</span>
+                                    <span id="critical-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-4">
+                                    <div id="critical-bar" class="progress-bar-inner bg-gray-400 h-4 rounded-full" style="width: 0;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-lg font-semibold text-white">Communication</span>
+                                    <span id="comm-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-4">
+                                    <div id="comm-bar" class="progress-bar-inner bg-gray-400 h-4 rounded-full" style="width: 0;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-lg font-semibold text-white">Team player</span>
+                                    <span id="team-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-4">
+                                    <div id="team-bar" class="progress-bar-inner bg-gray-400 h-4 rounded-full" style="width: 0;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-lg font-semibold text-white">Leadership</span>
+                                    <span id="lead-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-4">
+                                    <div id="lead-bar" class="progress-bar-inner bg-gray-400 h-4 rounded-full" style="width: 0;"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-lg font-semibold text-white">Curiosity</span>
+                                    <span id="curiosity-percent" class="text-sm font-semibold text-gray-400">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-4">
+                                    <div id="curiosity-bar" class="progress-bar-inner bg-gray-400 h-4 rounded-full" style="width: 0;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 lg:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-white">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-gray-700 rounded-lg shadow-lg overflow-hidden transition duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <img src="img/Project 1.png 1.png" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-white">Hotel Booking</h3>
+                            <p class="text-gray-400 mb-4">Luxotel is a web-based hotel platform designed to enhance the hospitality experience through technology. It provides a user-friendly interface for guests to discover rooms, manage bookings, and enjoy smart services. Key features include 24/7 booking, smart check-in, IoT-enabled room control, and chatbot support for instant assistance. Built with a modern UI and responsive design, Luxotel aims to deliver seamless, efficient, and enjoyable hotel stays for both guests and administrators.</p>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-gray-700 rounded-lg shadow-lg overflow-hidden transition duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <img src="img/Project 2.png" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-white">Hotel Management System</h3>
+                            <p class="text-gray-400 mb-4">The Hotel Management System is a comprehensive application designed to streamline hotel operations by managing rooms, employees, users, and bookings in one platform. It allows administrators to efficiently allocate and monitor room availability, handle customer reservations, and oversee employee records. The system also provides user management features, ensuring secure access and smooth interaction between staff and customers. By automating daily tasks, it reduces manual errors, improves service quality, and enhances overall hotel efficiency.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 lg:py-24">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-white">Get in Touch</h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+                    I'm always open to new opportunities and collaborations. Feel free to reach out to me!
+                </p>
+                <div class="flex flex-col items-center space-y-4">
+                    <a href="mailto:3obade2004@gmail.com" class="flex items-center space-x-2 text-gray-400 hover:text-white transition duration-300">
+                        <!-- Email icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 4v7a2 2 0 002 2h14a2 2 0 002-2v-7m-18 0l9 5 9-5" />
+                        </svg>
+                        <span>3obade2004@gmail.com</span>
+                    </a>
+                    <a href="https://wa.me/00201021656978" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-white transition duration-300">
+                        <!-- WhatsApp icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.624 1.934 6.6L4 29l7.6-1.934A12.96 12.96 0 0016 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.933 0-3.797-.52-5.414-1.5l-.386-.229-4.52 1.15 1.15-4.52-.229-.386A10.96 10.96 0 016 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.07-7.75c-.278-.139-1.646-.813-1.9-.904-.254-.093-.439-.139-.625.139-.186.278-.719.904-.881 1.092-.163.186-.326.209-.604.07-.278-.139-1.175-.433-2.237-1.38-.827-.736-1.384-1.644-1.547-1.922-.163-.278-.017-.428.122-.567.125-.124.278-.326.417-.488.139-.163.186-.278.278-.464.093-.186.047-.348-.023-.488-.07-.139-.625-1.508-.857-2.064-.226-.543-.456-.469-.625-.478-.163-.009-.348-.011-.532-.011-.186 0-.488.07-.744.348-.256.278-.977.956-.977 2.33 0 1.374.999 2.703 1.137 2.892.139.186 1.963 3.003 4.756 4.088.666.257 1.186.411 1.592.525.669.213 1.279.183 1.758.111.537-.08 1.646-.673 1.879-1.324.233-.651.233-1.209.163-1.324-.07-.116-.256-.186-.534-.325z"/>
+                        </svg>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/abdelrahman-atef-younes/" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-white transition duration-300">                        <!-- LinkedIn icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M16.3 14.1c.3.5.7.9 1.1 1.2.4.3.9.5 1.4.5.5 0 1-.2 1.4-.5.4-.3.7-.7 1-1.2.3-.5.4-1 .4-1.5 0-.5-.1-1-.4-1.5-.3-.5-.7-.9-1.1-1.2-.4-.3-.9-.5-1.4-.5-.5 0-1 .2-1.4.5-.4.3-.7.7-1 1.2-.3.5-.4 1-.4 1.5 0 .5.1 1 .4 1.5zM12 12c.5.5 1.1.9 1.7 1.2.6.3 1.2.5 1.8.5.6 0 1.2-.2 1.8-.5.6-.3 1.2-.7 1.7-1.2.5-.5.9-1.1 1.2-1.7.3-.6.5-1.2.5-1.8 0-.6-.2-1.2-.5-1.8-.3-.6-.7-1.2-1.2-1.7-.5-.5-1.1-.9-1.7-1.2-.6-.3-1.2-.5-1.8-.5-.6 0-1.2.2-1.8.5-.6.3-1.2.7-1.7 1.2-.5.5-.9 1.1-1.2 1.7-.3.6-.5 1.2-.5 1.8 0 .6.2 1.2.5 1.8.3.6.7 1.2 1.2 1.7zM7 12c.5.5 1.1.9 1.7 1.2.6.3 1.2.5 1.8.5.6 0 1.2-.2 1.8-.5.6-.3 1.2-.7 1.7-1.2.5-.5.9-1.1 1.2-1.7.3-.6.5-1.2.5-1.8 0-.6-.2-1.2-.5-1.8-.3-.6-.7-1.2-1.2-1.7-.5-.5-1.1-.9-1.7-1.2-.6-.3-1.2-.5-1.8-.5-.6 0-1.2.2-1.8.5-.6.3-1.2.7-1.7 1.2-.5.5-.9 1.1-1.2 1.7-.3.6-.5 1.2-.5 1.8 0 .6.2 1.2.5 1.8.3.6.7 1.2 1.2 1.7zM2.5 14.5c.3.5.7.9 1.1 1.2.4.3.9.5 1.4.5.5 0 1-.2 1.4-.5.4-.3.7-.7 1-1.2.3-.5.4-1 .4-1.5 0-.5-.1-1-.4-1.5-.3-.5-.7-.9-1.1-1.2-.4-.3-.9-.5-1.4-.5-.5 0-1 .2-1.4.5-.4.3-.7.7-1 1.2-.3.5-.4 1-.4 1.5 0 .5.1 1 .4 1.5z"></path></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://mostaql.com/u/abdo_atef_2004" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-white transition duration-300">
+                        <!-- Mostaql icon (generic link icon) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14L21 3m-4 0h4v4m-7 7l-8 8m0 0h4v4m-4-4v4" />
+                        </svg>
+                        <span>Mostaql</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-500 py-6 text-center">
+        <div class="container mx-auto px-4">
+            &copy; 2024 Abdelrahman Atef. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Skills animation logic
+        const skills = {
+            'cpp': 75,
+            'csharp': 85,
+            'python': 80,
+            'js': 85,
+            'asp': 80,
+            'react': 80,
+            'html': 90,
+            'sql': 75,
+            'efc': 75,
+            // Soft Skills
+            'selfmot': 90,
+            'attention': 85,
+            'critical': 80,
+            'comm': 85,
+            'team': 90,
+            'lead': 80,
+            'curiosity': 95,
+        };
+
+        let skillsAnimated = false;
+
+        function animateSkills() {
+            if (skillsAnimated) return;
+            skillsAnimated = true;
+            for (const skill in skills) {
+                const bar = document.getElementById(`${skill}-bar`);
+                const percentSpan = document.getElementById(`${skill}-percent`);
+                const targetWidth = skills[skill];
+
+                if (bar && percentSpan) {
+                    let currentWidth = 0;
+                    const interval = setInterval(() => {
+                        if (currentWidth >= targetWidth) {
+                            clearInterval(interval);
+                            return;
+                        }
+                        currentWidth += 1;
+                        bar.style.width = `${currentWidth}%`;
+                        percentSpan.textContent = `${currentWidth}%`;
+                    }, 10);
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer for skills section
+            const skillsSection = document.getElementById('skills');
+            if ('IntersectionObserver' in window && skillsSection) {
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateSkills();
+                            observer.unobserve(skillsSection);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                observer.observe(skillsSection);
+            } else {
+                // Fallback: animate immediately
+                animateSkills();
+            }
+        });
+    </script>
+</body>
+</html>
+``` 
